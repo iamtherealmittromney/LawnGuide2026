@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lawn Chemical Schedule — 2500 sq ft St. Augustine</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f2eb;--bg2:#edeadf;--bg3:#e4e0d3;--ink:#1a1a14;--ink2:#4a4a3a;--ink3:#7a7a65;--accent:#2d5a27;--accent2:#4a8f40;--accent-light:#d4e8cf;--warn:#8b4513;--warn-light:#f2e0d0;--danger:#8b1a1a;--danger-light:#f2d0d0;--safe:#1a5c3a;--safe-light:#d0eade;--gold:#b8860b;--gold-light:#f0e6c0;--pet:#4a3080;--pet-light:#e8e0f8;--border:rgba(26,26,20,0.12);--shadow:0 2px 12px rgba(26,26,20,0.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.fix-banner{background:#fff8e6;border-bottom:2px solid var(--gold);padding:.55rem 1.5rem;font-size:.78rem;color:#6b4a00;font-family:'DM Mono',monospace;text-align:center}
+.fix-banner strong{color:#4a3000}
+header{background:var(--accent);color:#fff;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.03) 20px,rgba(255,255,255,.03) 40px)}
+.hdr{position:relative;max-width:1100px;margin:0 auto}
+header h1{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;margin-bottom:.4rem}
+header p{font-size:.9rem;opacity:.8;font-family:'DM Mono',monospace}
+.htags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.htag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.75rem;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
+.tab-bar{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;display:flex;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tbi{display:flex;max-width:1100px;margin:0 auto;width:100%;padding:0 1rem}
+.tab{padding:.85rem 1.1rem;font-size:.82rem;font-weight:500;color:var(--ink3);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .18s;font-family:'Instrument Sans',sans-serif;background:none;border-top:none;border-left:none;border-right:none}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.section{display:none;animation:fi .25s ease}
+.section.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:400;margin-bottom:.4rem}
+.section-desc{font-size:.85rem;color:var(--ink3);margin-bottom:1.5rem;line-height:1.6}
+.ag{display:grid;grid-template-columns:160px repeat(12,1fr);gap:2px;font-size:.72rem;margin-bottom:2rem;min-width:860px}
+.ag-hd{background:var(--bg3);padding:6px 4px;text-align:center;font-weight:600;color:var(--ink2);border-radius:3px;font-family:'DM Mono',monospace}
+.ag-lbl{background:var(--bg2);padding:8px 10px;display:flex;align-items:center;gap:6px;font-weight:500;color:var(--ink);border-radius:3px;font-size:.75rem}
+.ag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ag-cell{border-radius:3px;display:flex;align-items:center;justify-content:center;padding:6px 2px;min-height:36px;font-size:.68rem;font-family:'DM Mono',monospace;font-weight:500;cursor:default;transition:transform .1s}
+.ag-cell:hover{transform:scale(1.06);z-index:2}
+.ag-e{background:var(--bg2);color:transparent}
+.ag-a{background:var(--accent);color:#fff}
+.ag-w{background:var(--accent-light);color:var(--accent)}
+.ag-c{background:var(--gold-light);color:var(--gold)}
+.ag-x{background:var(--danger-light);color:var(--danger)}
+.legend{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--ink2)}
+.leg-sw{width:14px;height:14px;border-radius:3px}
+.chem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem;margin-bottom:2rem}
+.card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 20px rgba(26,26,20,.12)}
+.card-hd{padding:.9rem 1rem .7rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem}
+.card-name{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:400;line-height:1.2}
+.card-type{font-size:.7rem;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:2px}
+.badge{font-size:.68rem;padding:3px 8px;border-radius:20px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.bf{background:var(--accent-light);color:var(--accent)}
+.bi{background:var(--warn-light);color:var(--warn)}
+.bpe{background:var(--gold-light);color:var(--gold)}
+.bpo{background:#e0d4f0;color:#5a2d82}
+.card-body{padding:.9rem 1rem}
+.cr{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid var(--border);font-size:.8rem}
+.cr:last-child{border-bottom:none}
+.cr-l{color:var(--ink3)}
+.cr-v{font-weight:600;color:var(--ink);font-family:'DM Mono',monospace}
+.cr-v.red{color:var(--danger)}
+.cr-v.grn{color:var(--safe)}
+.cr-v.gld{color:var(--gold)}
+.ubar{margin-top:.8rem}
+.u-lbl{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ink3);margin-bottom:4px}
+.u-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.u-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.u-low{background:var(--accent2)}
+.u-mid{background:var(--gold)}
+.u-hi{background:var(--danger)}
+.card-fix{font-size:.75rem;color:var(--danger);background:var(--danger-light);padding:.4rem .6rem;border-radius:4px;margin-top:.6rem;border-left:3px solid var(--danger)}
+.card-note{font-size:.75rem;color:var(--warn);margin-top:.6rem}
+.cycle-list{display:flex;flex-direction:column;gap:1.2rem}
+.cyc{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.cyc-hd{padding:.9rem 1.2rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid var(--border)}
+.cyc-num{width:28px;height:28px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;font-family:'DM Mono',monospace}
+.cyc-title{font-weight:600;color:var(--ink);font-size:.95rem}
+.cyc-mo{font-size:.75rem;color:var(--ink3);font-family:'DM Mono',monospace}
+.cyc-body{padding:0 1.2rem 1rem}
+.ct{width:100%;border-collapse:collapse;margin-top:.8rem;font-size:.8rem}
+.ct th{text-align:left;padding:5px 8px;font-size:.7rem;color:var(--ink3);border-bottom:1px solid var(--border);font-weight:500;font-family:'DM Mono',monospace}
+.ct td{padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.4}
+.ct tr:last-child td{border-bottom:none}
+.ct tr:hover td{background:var(--bg)}
+.tn{font-weight:600;color:var(--ink)}
+.td{font-family:'DM Mono',monospace;color:var(--accent);font-weight:500}
+.td.warn{color:var(--danger)}
+.tnote{color:var(--ink3);font-size:.75rem}
+.chip{display:inline-block;font-size:.65rem;font-family:'DM Mono',monospace;padding:1px 6px;border-radius:10px;margin-left:4px}
+.c-ok{background:var(--safe-light);color:var(--safe)}
+.c-w{background:var(--warn-light);color:var(--warn)}
+.c-max{background:var(--danger-light);color:var(--danger)}
+.tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:2rem}
+.tr-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem;box-shadow:var(--shadow)}
+.tr-name{font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:.2rem}
+.tr-sub{font-size:.72rem;color:var(--ink3);font-family:'DM Mono',monospace;margin-bottom:.75rem}
+.tr-cycles{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.6rem}
+.tc{padding:3px 8px;border-radius:4px;font-size:.7rem;font-family:'DM Mono',monospace;border:1px solid var(--border);color:var(--ink2);background:var(--bg)}
+.tc.on{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.tr-fix{font-size:.72rem;color:var(--danger);background:var(--danger-light);padding:.35rem .5rem;border-radius:4px;margin-top:.5rem;border-left:3px solid var(--danger)}
+.alert{padding:.8rem 1rem;border-radius:6px;font-size:.82rem;line-height:1.6;border-left:3px solid;margin-bottom:.8rem}
+.a-warn{background:var(--warn-light);border-color:var(--warn);color:var(--warn)}
+.a-info{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+.a-danger{background:var(--danger-light);border-color:var(--danger);color:var(--danger)}
+.a-gold{background:var(--gold-light);border-color:var(--gold);color:var(--gold)}
+.a-title{font-weight:700;margin-bottom:3px}
+.a-body{opacity:.85}
+.pet-hero{background:var(--pet);color:#fff;border-radius:10px;padding:1.5rem 1.5rem 1.2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.pet-hero::before{content:'🐾';position:absolute;right:1.5rem;top:1rem;font-size:3rem;opacity:.15}
+.pet-hero h3{font-family:'DM Serif Display',serif;font-size:1.3rem;font-weight:400;margin-bottom:.4rem}
+.pet-hero p{font-size:.85rem;opacity:.85;line-height:1.6}
+.wait-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.2rem 0 1.5rem}
+.wait-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+.wait-time{font-family:'DM Serif Display',serif;font-size:2rem;font-weight:400;line-height:1;margin-bottom:.3rem}
+.wait-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}
+.wait-desc{font-size:.75rem;color:var(--ink3);line-height:1.5}
+.pet-table{width:100%;border-collapse:collapse;font-size:.8rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.pet-table th{background:var(--bg2);padding:.6rem .8rem;text-align:left;font-size:.7rem;color:var(--ink3);font-weight:500;font-family:'DM Mono',monospace;border-bottom:1px solid var(--border)}
+.pet-table td{padding:.65rem .8rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.pet-table tr:last-child td{border-bottom:none}
+.pet-table tr:hover td{background:var(--bg)}
+.sdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.d-ok{background:var(--accent2)}
+.d-w{background:var(--gold)}
+.d-hi{background:var(--danger)}
+footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--ink3);border-top:1px solid var(--border);background:var(--bg2);font-family:'DM Mono',monospace}
+@media(max-width:600px){.chem-grid{grid-template-columns:1fr}header{padding:1.5rem 1rem 1.2rem}main{padding:1.2rem 1rem 3rem}}
+</style>
+</head>
+<body>
+
+<div class="fix-banner">
+  <strong>v2 — Corrected from label research:</strong> 3336F max per-app = 5 oz (not 10 oz) · Bifenthrin annual max = ~7.5 oz (not 12.1 oz) · Imidacloprid 2F confirmed 1.5 oz/yr · Prodiamine confirmed ~2 oz/yr · Pet safety tab added
+</div>
+
+<header>
+  <div class="hdr">
+    <h1>St. Augustine Lawn Chemical Plan</h1>
+    <p>2,500 sq ft · Orlando, FL · Verified Label Rates · v2</p>
+    <div class="htags">
+      <span class="htag">St. Augustine</span><span class="htag">3 Fungicides</span><span class="htag">2 Insecticides</span>
+      <span class="htag">2 Pre-emergents</span><span class="htag">Celsius WG</span><span class="htag">Kelp4Less</span><span class="htag">🐾 Pet Safety</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-bar">
+  <div class="tbi">
+    <button class="tab active" onclick="showTab('calendar',this)">Annual Calendar</button>
+    <button class="tab" onclick="showTab('chemicals',this)">Chemical Details</button>
+    <button class="tab" onclick="showTab('cycles',this)">Application Cycles</button>
+    <button class="tab" onclick="showTab('tracker',this)">Annual Limits</button>
+    <button class="tab" onclick="showTab('pet',this)">🐾 Pet Safety</button>
+    <button class="tab" onclick="showTab('tips',this)">Safety Tips</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- CALENDAR -->
+<section id="calendar" class="section active">
+  <div class="section-title">Annual Application Calendar</div>
+  <div class="section-desc">Recommended windows for Orlando, FL. Hover cells for dose details. Updated to corrected label rates (v2).</div>
+  <div class="legend">
+    <div class="leg-item"><div class="leg-sw" style="background:var(--accent)"></div>Apply window</div>
+    <div class="leg-item"><div class="leg-sw" style="background:var(--accent-light);border:1px solid var(--accent)"></div>Optional/secondary</div>
+    <div class="leg-item"><div class="leg-sw" style="background:var(--gold-light);border:1px solid var(--gold)"></div>Caution</div>
+    <div class="leg-item"><div class="leg-sw" style="background:var(--danger-light);border:1px solid var(--danger)"></div>Avoid</div>
+    <div class="leg-item"><div class="leg-sw" style="background:var(--bg2);border:1px solid var(--border)"></div>No application</div>
+  </div>
+  <div style="overflow-x:auto">
+  <div class="ag">
+    <div class="ag-hd">Chemical</div>
+    <div class="ag-hd">Jan</div><div class="ag-hd">Feb</div><div class="ag-hd">Mar</div><div class="ag-hd">Apr</div>
+    <div class="ag-hd">May</div><div class="ag-hd">Jun</div><div class="ag-hd">Jul</div><div class="ag-hd">Aug</div>
+    <div class="ag-hd">Sep</div><div class="ag-hd">Oct</div><div class="ag-hd">Nov</div><div class="ag-hd">Dec</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#2d5a27"></div>Myclobutanil</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-w" title="Pre-season window">pre</div>
+    <div class="ag-cell ag-a" title="3–6 fl oz for 2500 sq ft. Do NOT water in.">3–6oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Pre-Large Patch window">pre</div>
+    <div class="ag-cell ag-a" title="3–6 fl oz for 2500 sq ft">3–6oz</div>
+    <div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#4a8f40"></div>Azoxy 2SC</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Pre-gray leaf spot window">pre</div>
+    <div class="ag-cell ag-a" title="0.95–1.9 fl oz per app. Apply standalone only.">1–2oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Optional fall app">opt</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#1a5c3a"></div>3336F ⚠</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Monitor for disease">mon</div>
+    <div class="ag-cell ag-a" title="5 fl oz max (2 fl oz/1000 sq ft residential max). Water in lightly.">5oz</div>
+    <div class="ag-cell ag-a" title="5 fl oz — 2nd application">5oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#b8860b"></div>Bifenthrin ⚠</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-a" title="2.5 fl oz max per app (1 fl oz/1000 sq ft). Pre-wet lawn.">2.5oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-a" title="2.5 fl oz. Peak chinch bug season.">2.5oz</div>
+    <div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-a" title="2.5 fl oz — reaches annual max of ~7.5 oz">2.5oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#8b4513"></div>Imidacloprid 2F</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-c" title="Scout first — 5+ grubs/sq ft threshold">scout</div>
+    <div class="ag-cell ag-a" title="1.5 fl oz total. 0.5 inch irrigation same day. Scout-confirmed only.">1.5oz</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#5a2d82"></div>Prodiamine 65WDG</div>
+    <div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-a" title="1 oz for 2500 sq ft. Before soil hits 55°F. Weigh on scale.">1oz</div>
+    <div class="ag-cell ag-w" title="OK if soil still under 55°F">opt</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-a" title="1 oz — fall pre-emergent. Water in within 14 days.">1oz</div>
+    <div class="ag-cell ag-w" title="Early Nov OK">opt</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#4a3080"></div>Pennant Magnum</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-c" title="Too early — tender growth risk">early</div>
+    <div class="ag-cell ag-a" title="52 ml for 2500 sq ft. Fully greened out. Water in SAME DAY.">52ml</div>
+    <div class="ag-cell ag-w" title="OK if missed April">opt</div>
+    <div class="ag-cell ag-x" title="Avoid — heat + moisture = phytotox">avoid</div>
+    <div class="ag-cell ag-x" title="Avoid">avoid</div>
+    <div class="ag-cell ag-x" title="Avoid">avoid</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#8b1a1a"></div>Celsius WG</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Only if weeds + temps above 65°F">opt</div>
+    <div class="ag-cell ag-a" title="0.28 oz. Temps 65–90°F. Water day before.">✓</div>
+    <div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div>
+    <div class="ag-cell ag-c" title="Apply before 10am only">AM</div>
+    <div class="ag-cell ag-c" title="Apply before 10am only">AM</div>
+    <div class="ag-cell ag-a">✓</div>
+    <div class="ag-cell ag-w" title="While lawn still growing">opt</div>
+    <div class="ag-cell ag-e">—</div><div class="ag-cell ag-e">—</div>
+
+    <div class="ag-lbl"><div class="ag-dot" style="background:#2d8a6a"></div>Kelp4Less Blend</div>
+    <div class="ag-cell ag-e">—</div>
+    <div class="ag-cell ag-w" title="Pre-season soil prep">prep</div>
+    <div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div>
+    <div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div>
+    <div class="ag-cell ag-a">✓</div><div class="ag-cell ag-a">✓</div>
+    <div class="ag-cell ag-w" title="Taper frequency">opt</div>
+    <div class="ag-cell ag-e">—</div>
+  </div>
+  </div>
+</section>
+
+<!-- CHEMICALS -->
+<section id="chemicals" class="section">
+  <div class="section-title">Chemical Details &amp; Verified Rates</div>
+  <div class="section-desc">All rates verified from liquid concentrate product labels. Cards marked ⚠ were corrected from your original estimates.</div>
+  <div class="chem-grid">
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Myclobutanil 20EW</div><div class="card-type">FRAC Group 3 — DMI / Triazole</div></div><span class="badge bf">Fungicide</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">34.5 fl oz ✓ confirmed</span></div>
+        <div class="cr"><span class="cr-l">Per-app rate</span><span class="cr-v grn">1.2–2.4 fl oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">3–6 fl oz</span></div>
+        <div class="cr"><span class="cr-l">Planned annual (2 apps)</span><span class="cr-v grn">~9 fl oz — 26% of max</span></div>
+        <div class="cr"><span class="cr-l">Critical note</span><span class="cr-v red">Do NOT water in — foliar only</span></div>
+        <div class="ubar">
+          <div class="u-lbl"><span>Annual usage (mid-rate)</span><span>~9 of 34.5 fl oz</span></div>
+          <div class="u-track"><div class="u-fill u-low" style="width:26%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Azoxy 2SC Select</div><div class="card-type">FRAC Group 11 — QoI / Strobilurin</div></div><span class="badge bf">Fungicide</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">17.75 fl oz ✓ confirmed</span></div>
+        <div class="cr"><span class="cr-l">Per-app rate</span><span class="cr-v grn">0.38–0.77 fl oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">0.95–1.9 fl oz</span></div>
+        <div class="cr"><span class="cr-l">Planned annual (1 app)</span><span class="cr-v grn">~1.9 fl oz — 11% of max</span></div>
+        <div class="cr"><span class="cr-l">Tank-mix restriction</span><span class="cr-v gld">Standalone only — no mixing</span></div>
+        <div class="card-note">Excellent remaining budget — could do multiple apps per year if disease pressure warrants.</div>
+        <div class="ubar">
+          <div class="u-lbl"><span>Annual usage (1 app)</span><span>~1.9 of 17.75 fl oz</span></div>
+          <div class="u-track"><div class="u-fill u-low" style="width:11%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">3336F ⚠ Corrected</div><div class="card-type">FRAC Group 1 — MBC / Thiophanate-methyl</div></div><span class="badge bf">Fungicide</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">20 fl oz (8 fl oz/1000 sq ft/yr)</span></div>
+        <div class="cr"><span class="cr-l">Residential max per-app</span><span class="cr-v red">2 fl oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">5 fl oz max per application</span></div>
+        <div class="cr"><span class="cr-l">Max apps per year</span><span class="cr-v gld">4 apps OR 20 fl oz — whichever first</span></div>
+        <div class="cr"><span class="cr-l">Planned (2 apps × 5 oz)</span><span class="cr-v grn">10 fl oz — 50% of max</span></div>
+        <div class="cr"><span class="cr-l">Water-in for root disease</span><span class="cr-v">0.1–0.2 inch lightly</span></div>
+        <div class="card-fix">⚠ CORRECTED: 10 oz/app was double the residential label max of 2 fl oz/1000 sq ft (= 5 oz for 2500 sq ft). Use 5 oz per app, up to 4 times per year.</div>
+        <div class="ubar">
+          <div class="u-lbl"><span>Planned (2 apps)</span><span>10 of 20 fl oz</span></div>
+          <div class="u-track"><div class="u-fill u-low" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Bifenthrin 7.9F ⚠ Corrected</div><div class="card-type">Pyrethroid — Surface pest control</div></div><span class="badge bi">Insecticide</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max basis</span><span class="cr-v red">0.4 lb AI per acre per year</span></div>
+        <div class="cr"><span class="cr-l">Annual max — product (2500 sq ft)</span><span class="cr-v red">~7.5 fl oz product total/year</span></div>
+        <div class="cr"><span class="cr-l">Per-app rate</span><span class="cr-v grn">0.33–1 fl oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">0.8–2.5 fl oz</span></div>
+        <div class="cr"><span class="cr-l">Planned (3 apps × 2.5 oz)</span><span class="cr-v gld">7.5 fl oz — at annual limit</span></div>
+        <div class="cr"><span class="cr-l">Chinch bug tip</span><span class="cr-v">Pre-wet lawn; use 1 oz/1000 rate</span></div>
+        <div class="card-fix">⚠ CORRECTED: Your estimate of 12.1 oz/yr is nearly double the true annual max of ~7.5 fl oz for 2500 sq ft based on the 0.4 lb AI/acre label limit for 7.9% formulations.</div>
+        <div class="ubar">
+          <div class="u-lbl"><span>3 apps × 2.5 oz</span><span>7.5 / ~7.5 fl oz</span></div>
+          <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Imidacloprid 2F</div><div class="card-type">Neonicotinoid — Grub &amp; soil pest control</div></div><span class="badge bi">Insecticide</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">1.5 fl oz ✓ confirmed</span></div>
+        <div class="cr"><span class="cr-l">Per-app rate</span><span class="cr-v grn">0.46–0.6 fl oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">1.15–1.5 fl oz</span></div>
+        <div class="cr"><span class="cr-l">Applications per year</span><span class="cr-v">1 max — uses full annual budget</span></div>
+        <div class="cr"><span class="cr-l">Scout threshold</span><span class="cr-v">5+ grubs per sq ft before applying</span></div>
+        <div class="cr"><span class="cr-l">Water-in required</span><span class="cr-v">0.5 inch irrigation same day</span></div>
+        <div class="cr"><span class="cr-l">Chinch bug note</span><span class="cr-v gld">Suppression only — use bifenthrin</span></div>
+        <div class="ubar">
+          <div class="u-lbl"><span>If applied</span><span>1.5 / 1.5 fl oz</span></div>
+          <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Prodiamine 65 WDG</div><div class="card-type">Pre-emergent herbicide</div></div><span class="badge bpe">Pre-emergent</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">2.075 oz ✓ (≈ your 2 oz)</span></div>
+        <div class="cr"><span class="cr-l">Per-app rate</span><span class="cr-v grn">0.4 oz per 1000 sq ft (standard)</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">1 oz per application</span></div>
+        <div class="cr"><span class="cr-l">Planned annual (2 apps)</span><span class="cr-v gld">2 oz — at annual max</span></div>
+        <div class="cr"><span class="cr-l">Measurement</span><span class="cr-v red">By weight on digital scale — not volume</span></div>
+        <div class="cr"><span class="cr-l">Activation</span><span class="cr-v">Water in within 14 days</span></div>
+        <div class="ubar">
+          <div class="u-lbl"><span>Annual usage</span><span>2 / 2.075 oz</span></div>
+          <div class="u-track"><div class="u-fill u-mid" style="width:97%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Pennant Magnum</div><div class="card-type">Chloroacetamide — Sedge pre-emergent</div></div><span class="badge bpe">Pre-emergent</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Annual max (2500 sq ft)</span><span class="cr-v red">52 ml</span></div>
+        <div class="cr"><span class="cr-l">Applications per year</span><span class="cr-v">1× only — April</span></div>
+        <div class="cr"><span class="cr-l">Primary target</span><span class="cr-v">Yellow nutsedge</span></div>
+        <div class="cr"><span class="cr-l">Critical rule</span><span class="cr-v red">Water in SAME DAY — no exceptions</span></div>
+        <div class="cr"><span class="cr-l">Only when</span><span class="cr-v">Lawn fully greened out, not tender</span></div>
+        <div class="ubar">
+          <div class="u-lbl"><span>Annual usage</span><span>52 / 52 ml</span></div>
+          <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div><div class="card-name">Celsius WG</div><div class="card-type">Post-emergent herbicide</div></div><span class="badge bpo">Post-emergent</span></div>
+      <div class="card-body">
+        <div class="cr"><span class="cr-l">Rate per 1000 sq ft</span><span class="cr-v grn">0.113 oz per 1000 sq ft</span></div>
+        <div class="cr"><span class="cr-l">Per-app total (2500 sq ft)</span><span class="cr-v grn">0.28 oz</span></div>
+        <div class="cr"><span class="cr-l">Temperature window</span><span class="cr-v">65–90°F air temperature</span></div>
+        <div class="cr"><span class="cr-l">Avoid</span><span class="cr-v red">Below 60°F, drought stress, dormancy</span></div>
+        <div class="cr"><span class="cr-l">Summer tip</span><span class="cr-v gld">Apply before 10am in Jul–Aug</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CYCLES -->
+<section id="cycles" class="section">
+  <div class="section-title">4-Cycle Application Plan</div>
+  <div class="section-desc">Revised with corrected rates. 3336F = 5 oz per app (not 10 oz). Bifenthrin = 2.5 oz per app (not 4 oz). Apply Kelp4Less with every chemical application.</div>
+  <div class="cycle-list">
+
+    <div class="cyc">
+      <div class="cyc-hd"><div class="cyc-num">1</div><div>
+        <div class="cyc-title">Pre-Spring — February / March</div>
+        <div class="cyc-mo">Before soil hits 55°F · Lawn beginning to green</div>
+      </div></div>
+      <div class="cyc-body"><table class="ct">
+        <tr><th>Chemical</th><th>Rate for 2500 sq ft</th><th>Notes</th></tr>
+        <tr><td><span class="tn">Prodiamine 65 WDG</span></td><td><span class="td">1 oz (weigh)</span><span class="chip c-ok">50% annual</span></td><td class="tnote">Weigh on digital scale — not volume. Apply before soil hits 55°F. Water in within 14 days. Feb is ideal in Orlando.</td></tr>
+        <tr><td><span class="tn">Myclobutanil 20EW</span></td><td><span class="td">3–6 fl oz</span><span class="chip c-ok">~26% annual</span></td><td class="tnote">DMI fungicide — rotation group 3. Preventative as lawn greens up. DO NOT water in — let dry on leaf.</td></tr>
+        <tr><td><span class="tn">Bifenthrin 7.9F</span></td><td><span class="td">2.5 fl oz</span><span class="chip c-ok">33% annual</span></td><td class="tnote">Pre-wet lawn 24 hrs prior. High water volume for good thatch penetration. Chinch bug prevention.</td></tr>
+        <tr><td><span class="tn">Celsius WG</span></td><td><span class="td">0.28 oz</span></td><td class="tnote">Only if weeds present. Temps must exceed 65°F. Skip if lawn still partially dormant.</td></tr>
+        <tr><td><span class="tn">Kelp4Less Blend</span></td><td><span class="td">Per label</span></td><td class="tnote">Tank-mix with fungicide and insecticide. Apply Celsius separately.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="cyc">
+      <div class="cyc-hd"><div class="cyc-num">2</div><div>
+        <div class="cyc-title">Spring — April / May</div>
+        <div class="cyc-mo">Full greenup · Sedge emerging · Grub egg-laying begins</div>
+      </div></div>
+      <div class="cyc-body"><table class="ct">
+        <tr><th>Chemical</th><th>Rate for 2500 sq ft</th><th>Notes</th></tr>
+        <tr><td><span class="tn">Pennant Magnum</span></td><td><span class="td warn">52 ml</span><span class="chip c-max">Full annual</span></td><td class="tnote">April only, fully greened-out lawn. Water in within a few hours. One shot per year. Damage shows 2–3 weeks later.</td></tr>
+        <tr><td><span class="tn">Azoxy 2SC Select</span></td><td><span class="td">0.95–1.9 fl oz</span><span class="chip c-ok">11% annual</span></td><td class="tnote">QoI group 11 — standalone application only. No tank mixing. Pre-gray leaf spot timing.</td></tr>
+        <tr><td><span class="tn">Imidacloprid 2F</span></td><td><span class="td warn">1.5 fl oz</span><span class="chip c-max">Full annual — scout first</span></td><td class="tnote">Only if 5+ grubs per sq ft confirmed. Water in 0.5 inch same day. Do not apply preventatively.</td></tr>
+        <tr><td><span class="tn">Celsius WG</span></td><td><span class="td">0.28 oz</span></td><td class="tnote">Peak window. Apply 8–11am. Irrigate day prior.</td></tr>
+        <tr><td><span class="tn">Kelp4Less Blend</span></td><td><span class="td">Per label</span></td><td class="tnote">Separate from Azoxy application. Can mix with insecticide and other products.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="cyc">
+      <div class="cyc-hd"><div class="cyc-num">3</div><div>
+        <div class="cyc-title">Summer — July / August</div>
+        <div class="cyc-mo">Peak fungal pressure · Chinch bug season · Large Patch onset</div>
+      </div></div>
+      <div class="cyc-body"><table class="ct">
+        <tr><th>Chemical</th><th>Rate for 2500 sq ft</th><th>Notes</th></tr>
+        <tr><td><span class="tn">3336F</span></td><td><span class="td">5 fl oz</span><span class="chip c-ok">25% annual</span></td><td class="tnote">MBC group 1. CORRECTED to 5 oz (2 fl oz/1000 sq ft residential max). Light irrigation (0.1–0.2 inch) after for root protection. Aug application ahead of Large Patch season.</td></tr>
+        <tr><td><span class="tn">Bifenthrin 7.9F</span></td><td><span class="td">2.5 fl oz</span><span class="chip c-ok">66% annual</span></td><td class="tnote">Peak chinch bug season. Early morning application. Pre-wet lawn. No application if drought-stressed.</td></tr>
+        <tr><td><span class="tn">Celsius WG</span></td><td><span class="td">0.28 oz</span></td><td class="tnote">Before 10am only in July–August. Never when lawn is heat or drought stressed.</td></tr>
+        <tr><td><span class="tn">Kelp4Less Blend</span></td><td><span class="td">Per label</span></td><td class="tnote">Monthly applications. Humic acid and biostimulants help turf cope with heat stress.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="cyc">
+      <div class="cyc-hd"><div class="cyc-num">4</div><div>
+        <div class="cyc-title">Fall / Pre-Dormancy — October / November</div>
+        <div class="cyc-mo">Winter weed prevention · Large Patch peak · Lawn hardening</div>
+      </div></div>
+      <div class="cyc-body"><table class="ct">
+        <tr><th>Chemical</th><th>Rate for 2500 sq ft</th><th>Notes</th></tr>
+        <tr><td><span class="tn">Prodiamine 65 WDG</span></td><td><span class="td">1 oz (weigh)</span><span class="chip c-max">Annual total: 2 oz</span></td><td class="tnote">Fall pre-emergent before cool-season weeds germinate. Soil temps falling through 70°F. Water in within 14 days.</td></tr>
+        <tr><td><span class="tn">3336F (2nd app)</span></td><td><span class="td">5 fl oz</span><span class="chip c-ok">50% annual total</span></td><td class="tnote">Second 3336F app — perfect Large Patch timing as temps drop below 70°F. Light irrigation after. Still 2 more applications worth of annual budget if needed.</td></tr>
+        <tr><td><span class="tn">Bifenthrin 7.9F</span></td><td><span class="td">2.5 fl oz</span><span class="chip c-max">Annual total: 7.5 oz</span></td><td class="tnote">Final application reaches annual maximum. Skip if no pest pressure, or substitute lambda-cyhalothrin to preserve bifenthrin budget.</td></tr>
+        <tr><td><span class="tn">Celsius WG</span></td><td><span class="td">0.28 oz</span></td><td class="tnote">Only while actively growing. Do NOT apply below 60°F or when entering dormancy.</td></tr>
+        <tr><td><span class="tn">Kelp4Less Blend</span></td><td><span class="td">Per label</span></td><td class="tnote">Taper to every 4–6 weeks. Potassium-focused amendment helps harden turf for winter.</td></tr>
+      </table></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRACKER -->
+<section id="tracker" class="section">
+  <div class="section-title">Annual Limit Tracker</div>
+  <div class="section-desc">Updated with verified rates. Red cards indicate products that required correction from your original estimates.</div>
+  <div class="tr-grid">
+
+    <div class="tr-card">
+      <div class="tr-name">Myclobutanil 20EW</div>
+      <div class="tr-sub">Max: 34.5 fl oz · Planned: ~9 fl oz</div>
+      <div class="tr-cycles"><span class="tc on">C1: 3–6 fl oz</span><span class="tc">C2: —</span><span class="tc">C3: —</span><span class="tc on">C4: 3–6 fl oz</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>~9 of 34.5 fl oz</span><span style="color:var(--safe);font-weight:600">26% — lots of headroom ✓</span></div>
+      <div class="u-track"><div class="u-fill u-low" style="width:26%"></div></div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">Azoxy 2SC Select</div>
+      <div class="tr-sub">Max: 17.75 fl oz · Planned: ~1.9 fl oz</div>
+      <div class="tr-cycles"><span class="tc">C1: —</span><span class="tc on">C2: ~1.9 fl oz</span><span class="tc">C3: —</span><span class="tc">C4: opt</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>~1.9 of 17.75 fl oz</span><span style="color:var(--safe);font-weight:600">11% — room for many more apps</span></div>
+      <div class="u-track"><div class="u-fill u-low" style="width:11%"></div></div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">3336F — Corrected ⚠</div>
+      <div class="tr-sub">Max: 20 fl oz · Planned: 10 fl oz (2 × 5 oz)</div>
+      <div class="tr-cycles"><span class="tc">C1: —</span><span class="tc">C2: —</span><span class="tc on">C3: 5 fl oz</span><span class="tc on">C4: 5 fl oz</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>10 of 20 fl oz</span><span style="color:var(--safe);font-weight:600">50% — 2 more apps available</span></div>
+      <div class="u-track"><div class="u-fill u-low" style="width:50%"></div></div>
+      <div class="tr-fix">Previous: 10 oz/app. Corrected: 5 oz/app (residential label = 2 fl oz/1000 sq ft max).</div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">Bifenthrin 7.9F — Corrected ⚠</div>
+      <div class="tr-sub">Max: ~7.5 fl oz · Planned: 7.5 fl oz (3 × 2.5 oz)</div>
+      <div class="tr-cycles"><span class="tc on">C1: 2.5 fl oz</span><span class="tc">C2: —</span><span class="tc on">C3: 2.5 fl oz</span><span class="tc on">C4: 2.5 fl oz</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>7.5 of ~7.5 fl oz</span><span style="color:var(--danger);font-weight:600">At annual max ⚠</span></div>
+      <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+      <div class="tr-fix">Previous estimate 12.1 oz/yr ≈ 2× the true max. Annual limit is ~7.5 fl oz for 2500 sq ft (0.4 lb AI/acre basis, 7.9% formulation).</div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">Imidacloprid 2F</div>
+      <div class="tr-sub">Max: 1.5 fl oz · Planned: 1.5 fl oz if needed</div>
+      <div class="tr-cycles"><span class="tc">C1: —</span><span class="tc on">C2: 1.5 fl oz*</span><span class="tc">C3: —</span><span class="tc">C4: —</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>1.5 of 1.5 fl oz if applied</span><span style="color:var(--danger);font-weight:600">Full annual max if used ⚠</span></div>
+      <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+      <div style="font-size:.72rem;color:var(--ink3);margin-top:6px">*Apply only if grubs confirmed by scouting</div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">Prodiamine 65 WDG</div>
+      <div class="tr-sub">Max: 2.075 oz · Planned: 2 oz</div>
+      <div class="tr-cycles"><span class="tc on">C1: 1 oz</span><span class="tc">C2: —</span><span class="tc">C3: —</span><span class="tc on">C4: 1 oz</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>2 of 2.075 oz</span><span style="color:var(--warn);font-weight:600">97% of max</span></div>
+      <div class="u-track"><div class="u-fill u-mid" style="width:97%"></div></div>
+    </div>
+
+    <div class="tr-card">
+      <div class="tr-name">Pennant Magnum</div>
+      <div class="tr-sub">Max: 52 ml · Planned: 52 ml</div>
+      <div class="tr-cycles"><span class="tc">C1: —</span><span class="tc on">C2: 52 ml</span><span class="tc">C3: —</span><span class="tc">C4: —</span></div>
+      <div class="u-lbl" style="font-size:.72rem;color:var(--ink3);margin-bottom:4px"><span>52 of 52 ml</span><span style="color:var(--danger);font-weight:600">At annual max ⚠</span></div>
+      <div class="u-track"><div class="u-fill u-hi" style="width:100%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PET SAFETY -->
+<section id="pet" class="section">
+  <div class="section-title">🐾 Pet Safety Guide</div>
+  <div class="section-desc">How to safely apply liquid fertilizer and lawn chemicals when you have a dog.</div>
+
+  <div class="pet-hero">
+    <h3>Liquid fertilizer and your dog</h3>
+    <p>Liquid fertilizers are generally safer than granular ones because there are no pellets for dogs to ingest off the ground. However dogs are low to the ground, lick their paws, and roll in grass — so timing and watering practices matter. In Orlando's heat and humidity, surfaces stay damp longer, extending the time chemicals remain active on grass blades.</p>
+  </div>
+
+  <div style="font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:.75rem">Minimum wait times before letting your dog back on the lawn</div>
+  <div class="wait-grid">
+    <div class="wait-card">
+      <div class="wait-time" style="color:var(--accent)">2–4 hrs</div>
+      <div class="wait-label" style="color:var(--accent)">Liquid Fertilizer</div>
+      <div class="wait-desc">Wait until completely dry to the touch. In Orlando humidity, plan for 3–4 hours. If it's overcast or you applied in shade, wait longer.</div>
+    </div>
+    <div class="wait-card">
+      <div class="wait-time" style="color:var(--accent2)">2–4 hrs</div>
+      <div class="wait-label" style="color:var(--accent2)">Fungicides</div>
+      <div class="wait-desc">Low acute pet toxicity. Wait until fully dry. For 3336F with water-in, wait for the lawn to re-dry after irrigation.</div>
+    </div>
+    <div class="wait-card">
+      <div class="wait-time" style="color:var(--gold)">24–48 hrs</div>
+      <div class="wait-label" style="color:var(--gold)">Celsius WG</div>
+      <div class="wait-desc">Herbicides carry higher risk. Minimum 24 hours after drying. A light watering after the dry period then re-drying further reduces surface residue.</div>
+    </div>
+    <div class="wait-card">
+      <div class="wait-time" style="color:var(--danger)">48–72 hrs</div>
+      <div class="wait-label" style="color:var(--danger)">Insecticides</div>
+      <div class="wait-desc">Bifenthrin and imidacloprid are the highest concern. Wait until dry, then water lightly and let re-dry before dog access. Wipe paws for several days after.</div>
+    </div>
+  </div>
+
+  <div style="font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:.75rem">Should you water in liquid fertilizer when you have a dog?</div>
+  <div class="alert a-info">
+    <div class="a-title">Yes — watering in after the dry period is a smart extra step</div>
+    <div class="a-body">For liquid fertilizer, let it dry fully first (2–4 hours). Then a light watering helps move residual nutrients from the grass blades down into the soil where they are far less accessible to your dog's paws and mouth. Your Kelp4Less blend is low-toxicity, but this extra step is worthwhile for paw-licking dogs. For imidacloprid specifically, the 0.5-inch water-in is required for efficacy anyway — wait for the lawn to re-dry after that before allowing dog access.</div>
+  </div>
+
+  <div style="font-weight:600;font-size:.9rem;color:var(--ink);margin:1.2rem 0 .75rem">Per-chemical pet safety reference</div>
+  <table class="pet-table">
+    <tr><th>Chemical</th><th>Risk</th><th>Min wait</th><th>Dog-specific precautions</th></tr>
+    <tr>
+      <td><strong>Kelp4Less liquid blend</strong></td>
+      <td><span class="sdot d-ok"></span>Low</td>
+      <td>2–4 hrs dry</td>
+      <td>After drying, optional light watering then re-dry adds safety margin for paw-lickers.</td>
+    </tr>
+    <tr>
+      <td><strong>Myclobutanil 20EW</strong></td>
+      <td><span class="sdot d-ok"></span>Low after dry</td>
+      <td>Until fully dry</td>
+      <td>Do NOT water in — let dry on leaf. Keep dog off until spray is completely dry (~2 hrs).</td>
+    </tr>
+    <tr>
+      <td><strong>Azoxy 2SC Select</strong></td>
+      <td><span class="sdot d-ok"></span>Low after dry</td>
+      <td>Until fully dry</td>
+      <td>Low pet toxicity once dried. Apply standalone — keep dog off during application and until dry.</td>
+    </tr>
+    <tr>
+      <td><strong>3336F</strong></td>
+      <td><span class="sdot d-ok"></span>Low after dry</td>
+      <td>Until re-dry after watering</td>
+      <td>For root disease treatment, lightly water in then wait for lawn to re-dry before dog access.</td>
+    </tr>
+    <tr>
+      <td><strong>Bifenthrin 7.9F</strong></td>
+      <td><span class="sdot d-w"></span>Moderate</td>
+      <td>48 hrs minimum</td>
+      <td>Moderately concerning if ingested via paw-licking. After 48 hrs, water lawn and let re-dry. Wipe dog paws for 2–3 days after application.</td>
+    </tr>
+    <tr>
+      <td><strong>Imidacloprid 2F</strong></td>
+      <td><span class="sdot d-w"></span>Moderate</td>
+      <td>48–72 hrs after re-dry</td>
+      <td>Required 0.5-inch water-in for efficacy. Wait for lawn to fully re-dry after watering before any dog access. Neonicotinoids can cause neurological symptoms if ingested.</td>
+    </tr>
+    <tr>
+      <td><strong>Prodiamine 65 WDG</strong></td>
+      <td><span class="sdot d-ok"></span>Low after activation</td>
+      <td>Until dry after watering</td>
+      <td>Must be watered in within 14 days. Once watered in and dried, risk drops significantly. Ensure product is fully dissolved in sprayer — do not leave WDG residue on surface.</td>
+    </tr>
+    <tr>
+      <td><strong>Pennant Magnum</strong></td>
+      <td><span class="sdot d-w"></span>Moderate</td>
+      <td>48 hrs after watering-in</td>
+      <td>Must be watered in same day. Keep dog off during water-in window. After re-drying, risk is reduced. Wipe paws on first few re-entries.</td>
+    </tr>
+    <tr>
+      <td><strong>Celsius WG</strong></td>
+      <td><span class="sdot d-w"></span>Moderate</td>
+      <td>24–48 hrs</td>
+      <td>Herbicides carry higher paw/GI exposure risk. Apply when dog will be away for the day. Wait at least 24 hours and consider wiping paws on first re-entry.</td>
+    </tr>
+  </table>
+
+  <div class="alert a-warn">
+    <div class="a-title">Signs of possible chemical exposure in dogs</div>
+    <div class="a-body">Watch for: excessive paw-licking, drooling, vomiting, diarrhea, lethargy, skin irritation, or unusual behavior after time on a treated lawn. If symptoms appear, rinse paws thoroughly and contact your vet. Have the product name and label ready. Pet Poison Helpline: 1-855-764-7661.</div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="a-title">Best day-of strategy when you have a dog</div>
+    <div class="a-body">Apply chemicals early on a day when your dog will be inside or away (boarding, daycare, a walk). Apply liquid fertilizer and fungicides together in the morning — by evening the lawn is dry. Schedule insecticide days separately from weed killer days if possible. Never apply Celsius WG and bifenthrin on the same day — the combined 48-hour restriction is your longest window and covers both products if timed together.</div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips" class="section">
+  <div class="section-title">Safety Tips &amp; Burn Prevention</div>
+  <div class="section-desc">Rules for preventing phytotoxicity, resistance buildup, and label overuse on your Orlando St. Augustine lawn.</div>
+
+  <div class="alert a-danger">
+    <div class="a-title">Never spray a stressed lawn</div>
+    <div class="a-body">Drought stress, heat stress, or visible damage means no chemical applications. Water thoroughly for 2–3 days first. Stressed St. Augustine is significantly more vulnerable to phytotoxicity from every product in this plan — especially Celsius WG, Pennant Magnum, and bifenthrin.</div>
+  </div>
+  <div class="alert a-warn">
+    <div class="a-title">3336F residential per-app max is 2 fl oz per 1000 sq ft (5 oz for your lawn)</div>
+    <div class="a-body">Higher rates listed on the label are for golf course greens and non-residential turf. At 5 oz per application you get up to 4 applications per year before hitting the 20 oz annual max. This gives you excellent disease coverage throughout the season if you need it.</div>
+  </div>
+  <div class="alert a-warn">
+    <div class="a-title">Bifenthrin: previous estimate of 12.1 oz/yr was nearly double the true limit</div>
+    <div class="a-body">Annual max is ~7.5 fl oz for 2500 sq ft based on the 0.4 lb AI/acre cap for 7.9% formulations. Three applications at 2.5 oz each hits the limit. If a mid-season outbreak requires emergency treatment, switch to lambda-cyhalothrin or permethrin to stay within label limits.</div>
+  </div>
+  <div class="alert a-gold">
+    <div class="a-title">Pennant Magnum — water same day, lawn fully established</div>
+    <div class="a-body">April only, after the lawn is completely out of dormancy — no tender new growth. Water in within hours. Phytotoxicity shows up 2–3 weeks after the fact, so plan ahead and don't get confused by delayed browning that appears unrelated to application day.</div>
+  </div>
+  <div class="alert a-info">
+    <div class="a-title">Rotate all three fungicide groups every cycle</div>
+    <div class="a-body">Myclobutanil (Group 3) → Azoxystrobin (Group 11) → 3336F (Group 1) → back to Myclobutanil. Never repeat the same group consecutively. Large Patch and Gray Leaf Spot are your primary Orlando threats. Preventative rotation before symptoms is the only reliable strategy.</div>
+  </div>
+  <div class="alert a-info">
+    <div class="a-title">Azoxy 2SC is standalone only — no tank mixing</div>
+    <div class="a-body">The label explicitly advises against mixing Azoxy 2SC with other fungicides, insecticides, herbicides, or fertilizers. Give it its own spray day. All your other chemicals can be combined.</div>
+  </div>
+  <div class="alert a-info">
+    <div class="a-title">Application order on multi-chemical days</div>
+    <div class="a-body">(1) Pre-emergent — water in if required, wait 24–48 hrs before other products. (2) Fungicide + Kelp4Less blend as tank mix (except Azoxy — apply alone). (3) Insecticide + Kelp4Less. (4) Celsius WG — always separate, never mixed. Confirm tank compatibility with a small test jar before full mixing.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  St. Augustine Lawn Chemical Plan · 2,500 sq ft · Orlando, FL · v2 · Rates corrected to liquid concentrate labels · Always verify against your specific product label before each application
+</footer>
+
+<script>
+function showTab(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
